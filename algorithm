@@ -1,0 +1,11 @@
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if(root==NULL||root==p||root==q) return root;
+        TreeNode *temp1=lowestCommonAncestor(root->left,p,q);//这就相当于一直在遍历整个树，直到这个结点为空，p或q；相当于一直在遍历树
+        TreeNode *temp2=lowestCommonAncestor(root->right,p,q);
+        if(temp1==NULL)//一直递归返回给上一个递归指针
+        return temp2;
+        else if(temp2==NULL)
+        return temp1;
+        return root;
+        
+    }
